@@ -1,0 +1,52 @@
+[
+  {
+    "job_title": "Python Developer",
+    "company": "Softbenz Infosys",
+    "location": "Kathmandu, B\u0101gmat\u012b, Nepal",
+    "description": "",
+    "requirements": [
+      "2-4 years of Python development experience",
+      "Strong proficiency in Django and Python",
+      "Experience with Django REST Framework",
+      "Solid understanding of database design and ORM",
+      "Proficiency in PostgreSQL or MySQL",
+      "Intermediate Git version control skills"
+    ],
+    "skills_required": [],
+    "experience_level": "2-4 years",
+    "salary_range": "",
+    "match_details": {
+      "match_score": 70,
+      "matched_skills": [
+        "Python Programming",
+        "File handling",
+        "OOPs",
+        "DSA",
+        "Django",
+        "Django ORM",
+        "Authentication & Authorization",
+        "Form Handling",
+        "Data Visualization"
+      ],
+      "missing_skills": [
+        "Strong proficiency in Django and Python",
+        "Experience with Django REST Framework",
+        "Solid understanding of database design and ORM",
+        "Proficiency in PostgreSQL or MySQL",
+        "Intermediate Git version control skills"
+      ],
+      "match_reasoning": "The candidate has matched most of the technical skills required for the job, including Python programming, Django, and data visualization. However, the candidate lacks experience with Django REST Framework and solid understanding of database design and ORM. The candidate also doesn't have proficiency in PostgreSQL or MySQL, but has mentioned familiarity with Matplotlib and Seaborn which could be considered as related skills. Overall, the match is 70% due to the lack of relevant experience and specific required skills.",
+      "matched_experience": [
+        "12/2024 \u2013 present",
+        "Board Member at SSRC"
+      ],
+      "improvement_suggestions": [
+        "Gain more experience with Django REST Framework",
+        "Develop a solid understanding of database design and ORM",
+        "Acquire proficiency in PostgreSQL or MySQL",
+        "Improve Git version control skills"
+      ],
+      "additional_comments": "The candidate has a strong background in Python programming, which is a requirement for the job. However, the lack of experience with Django REST Framework and specific requirements like database design and ORM might be challenging to match."
+    }
+  }
+]

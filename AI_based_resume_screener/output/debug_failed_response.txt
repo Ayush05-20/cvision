@@ -1,0 +1,5 @@
+{
+    "match_score": 20,
+    "matched_skills": ["Python Programming", "File handling", "OOPs", "DSA", "Data Visualization", "Matplotlib", "Seaborn"],
+    "missing_skills": ["Django ORM", "Authentication & Authorization", "Form Handling"],
+    "match_reasoning": "The candidate has relevant technical skills such as Python programming, data visualization, and OOPs. However, the job listing does not require Django ORM, authentication and authorization, or form handling. The match score is low due to the missing skills."

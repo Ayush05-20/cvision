@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Matches - CVisionary</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #111827;
+    }
+
+    header, footer {
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #4997ff;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #a1c9ff, #818cf8);
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 120px 20px 60px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #4997ff, #cca6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .job-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1f2937;
+    }
+
+    .score-badge {
+      background: #4997ff;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .job-meta {
+      color: #6b7280;
+      margin: 8px 0 16px;
+      font-size: 1rem;
+    }
+
+    .job-description, .match-info {
+      font-size: 1rem;
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ url_for('index') }}" class="logo">
+        <div class="logo-icon"><i class="fas fa-brain"></i></div>
+        CVisionary
+      </a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Your Top Job Matches</h1>
+
+    {% for job in job_matches %}
+    <div class="job-card">
+      <div class="job-header">
+        <div class="job-title">{{ job.job_title or "Untitled Position" }}</div>
+        <div class="score-badge">{{ job.match_details.match_score }}%</div>
+      </div>
+      <div class="job-meta">
+        {{ job.company or "Unknown Company" }} | {{ job.location or "Unknown Location" }}
+      </div>
+      <div class="job-description">{{ job.description or "No job description available." }}</div>
+
+      <div class="section-title">Matched Skills</div>
+      <ul>
+        {% for skill in job.match_details.matched_skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="section-title">Missing Skills</div>
+      <ul>
+        {% for skill in job.match_details.missing_skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="section-title">Experience Match</div>
+      <ul>
+        {% for exp in job.match_details.matched_experience %}
+        <li>{{ exp }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="section-title">Why This Match?</div>
+      <div class="match-info">{{ job.match_details.match_reasoning }}</div>
+
+      <div class="section-title">Suggestions for Improvement</div>
+      <ul>
+        {% for tip in job.match_details.improvement_suggestions %}
+        <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
+
+      {% if job.match_details.additional_comments %}
+      <div class="section-title">Additional Comments</div>
+      <div class="match-info">{{ job.match_details.additional_comments }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CVisionary AI. All rights reserved.</p>
+  </footer>
+</body>
+</html>
